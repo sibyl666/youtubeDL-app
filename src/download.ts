@@ -3,7 +3,9 @@ import {
   downloadFile,
   DownloadProgressCallbackResult,
   PicturesDirectoryPath,
-  scanFile
+  scanFile,
+  exists,
+  mkdir
 } from "react-native-fs";
 
 export interface ServerData {
@@ -37,12 +39,16 @@ export const download = async (url: string, callback: DownloadCallback): Promise
     return [null, error]
   }
 
+  if (!(await exists(`${PicturesDirectoryPath}/Download`))) {
+    await mkdir(`${PicturesDirectoryPath}/Download`);
+  }
+
   downloadFile({
     fromUrl: `${baseUrl}videos/${data.fileUri}`,
-    toFile: `${PicturesDirectoryPath}/${data.fileUri}`,
+    toFile: `${PicturesDirectoryPath}/Download/${data.fileUri}`,
     progress: callback
   }).promise.then(() => {
-    scanFile(`${PicturesDirectoryPath}/${data.fileUri}`);
+    scanFile(`${PicturesDirectoryPath}/Download/${data.fileUri}`);
   })
 
   return [data, null];
