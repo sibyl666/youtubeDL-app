@@ -33,7 +33,7 @@ const App = () => {
       let progress = res.bytesWritten / res.contentLength;
       setProgress(progress);
     });
-
+    
     if (!data || error) {
       setMsg(axios.isAxiosError(error) ? error?.response?.data : error as string);
       return;
@@ -87,7 +87,7 @@ const style = StyleSheet.create({
   cover: {
     aspectRatio: 2,
     borderRadius: 6,
-    marginVertical: 5,
+    marginBottom: 5,
     width: "100%",
     backgroundColor: "#262626",
   }

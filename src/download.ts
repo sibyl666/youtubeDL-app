@@ -14,7 +14,6 @@ export interface ServerData {
 }
 
 type DownloadCallback = (res: DownloadProgressCallbackResult) => void
-
 const baseUrl = 'http://34.75.117.60/';
 
 const getFileUri = async (url: string): Promise<[
@@ -42,8 +41,9 @@ export const download = async (url: string, callback: DownloadCallback): Promise
     fromUrl: `${baseUrl}videos/${data.fileUri}`,
     toFile: `${PicturesDirectoryPath}/${data.fileUri}`,
     progress: callback
-  });
+  }).promise.then(() => {
+    scanFile(`${PicturesDirectoryPath}/${data.fileUri}`);
+  })
 
-  await scanFile(`${PicturesDirectoryPath}/${data.fileUri}`);
   return [data, null];
 }
