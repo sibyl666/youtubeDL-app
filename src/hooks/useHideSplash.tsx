@@ -5,6 +5,6 @@ import RNBootSplash from "react-native-bootsplash";
 
 export const useHideSplash = () => {
   useEffect(() => {
-    RNBootSplash.hide();
+    RNBootSplash.hide({ fade: true });
   }, [])
 }

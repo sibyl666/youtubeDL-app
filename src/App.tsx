@@ -35,7 +35,10 @@ const App = () => {
     });
     
     if (!data || error) {
-      setMsg(axios.isAxiosError(error) ? error?.response?.data : error as string);
+      setMsg(axios.isAxiosError(error) ? 
+        error?.response?.data.code : 
+        (error as Error).message
+      );
       return;
     }
 
