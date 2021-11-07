@@ -28,7 +28,7 @@ const App = () => {
 
   const pressHandler = async () => {
     startEffect();
-    setMsg("");
+    setMsg("Waiting for response from the server..");
     
     const [data, error] = await download(url, (res) => {
       let progress = res.bytesWritten / res.contentLength;
@@ -37,7 +37,7 @@ const App = () => {
     
     if (!data || error) {
       if (axios.isAxiosError(error)) {
-        setMsg(`Kill code: ${error?.response?.data.code}`);
+        setMsg(error.response?.data.code ? `Kill code ${error.response?.data.code}` : error.response?.data);
       } else {
         setMsg("Unknown Error");
       }
