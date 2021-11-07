@@ -45,6 +45,7 @@ const App = () => {
     }
 
     setData(data);
+    setMsg("done!");
   }
 
   return (
