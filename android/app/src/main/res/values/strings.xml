@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">youtubeDL</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">4SagdDHcsEKJG4yIOx1rm02DXRrj5_IaK4p6R</string>
 </resources>

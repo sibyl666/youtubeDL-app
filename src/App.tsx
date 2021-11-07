@@ -14,6 +14,7 @@ import {
   useButtonAnimation
 } from "./hooks";
 import { download, ServerData } from "./download";
+import codePush from "react-native-code-push";
 import axios from "axios";
 
 const App = () => {
@@ -64,8 +65,10 @@ const App = () => {
           showsText={true}
           color="#7C3AED"
         />
-        <Text style={{ color: "white", marginVertical: 5, textAlign: "center" }}>{ msg }</Text>
+        <Text style={{ color: "white", textAlign: "center" }}>{ msg }</Text>
       </View>
+
+      <Text style={{ color: "#303030" }}>Version 1.0</Text>
     </View>
   )
 }
@@ -96,4 +99,7 @@ const style = StyleSheet.create({
   }
 })
 
-export default App;
+export default codePush({
+  updateDialog: true,
+  installMode: codePush.InstallMode.IMMEDIATE
+})(App);
