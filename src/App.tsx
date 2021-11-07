@@ -36,10 +36,11 @@ const App = () => {
     });
     
     if (!data || error) {
-      setMsg(axios.isAxiosError(error) ? 
-        error?.response?.data.code : 
-        (error as Error).message
-      );
+      if (axios.isAxiosError(error)) {
+        setMsg(`Kill code: ${error?.response?.data.code}`);
+      } else {
+        setMsg("Unknown Error");
+      }
       return;
     }
 
@@ -68,7 +69,7 @@ const App = () => {
         <Text style={{ color: "white", textAlign: "center" }}>{ msg }</Text>
       </View>
 
-      <Text style={{ color: "#303030" }}>Version 1.0</Text>
+      <Text style={{ color: "#303030" }}>Version 1.0.0</Text>
     </View>
   )
 }

@@ -20,19 +20,19 @@ const baseUrl = 'http://34.75.117.60/';
 
 const getFileUri = async (url: string): Promise<[
   data: null | ServerData,
-  error: null | AxiosError | unknown
+  error: Error | AxiosError | null
 ]> => {
   try {
     const response = await axios.get<ServerData>(baseUrl, {params: {url}});
     return [response.data, null];
   } catch (error) {
-    return [null, error];
+    return [null, error as Error];
   }
 }
 
 export const download = async (url: string, callback: DownloadCallback): Promise<[
   data: null | ServerData,
-  error: null | AxiosError | unknown
+  error: Error | AxiosError | null
 ]> => {
   const [data, error] = await getFileUri(url);
   if (!data) {
