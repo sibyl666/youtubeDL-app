@@ -92,10 +92,10 @@ const style = StyleSheet.create({
     marginVertical: 5
   },
   cover: {
-    aspectRatio: 2,
     borderRadius: 6,
     marginBottom: 5,
     width: "100%",
+    height: "20%",
     backgroundColor: "#262626",
   }
 })
