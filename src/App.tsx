@@ -28,7 +28,6 @@ const App = () => {
 
   const pressHandler = async () => {
     startEffect();
-    setMsg("Waiting for response from the server..");
     
     const [data, error] = await download(url, (res) => {
       let progress = res.bytesWritten / res.contentLength;
