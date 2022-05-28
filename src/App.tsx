@@ -68,7 +68,7 @@ const App = () => {
         <Text style={{ color: "white", textAlign: "center" }}>{ msg }</Text>
       </View>
 
-      <Text style={{ color: "#303030" }}>Version 1.0.2</Text>
+      <Text style={{ color: "#303030" }}>Version 1.0.3</Text>
     </View>
   )
 }

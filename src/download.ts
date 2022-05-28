@@ -16,7 +16,7 @@ export interface ServerData {
 }
 
 type DownloadCallback = (res: DownloadProgressCallbackResult) => void
-const baseUrl = 'http://34.75.117.60/';
+const baseUrl = 'http://130.61.86.163/';
 
 const getFileUri = async (url: string): Promise<[
   data: null | ServerData,
